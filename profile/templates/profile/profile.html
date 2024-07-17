@@ -1,10 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Profile Page</title>
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   </head>
+   <body>
+       <div class="container mt-5">
+           <div class="row">
+               <div class="col-md-12">
+                   <h1 class="text-center mb-4">Profile</h1>
+                   <div class="card">
+                       <div class="card-header">
+                           <h5 class="card-title">User Information</h5>
+                       </div>
+                       {% with messages = get_flashed_messages() %}
+                           {% if messages %}
+                               {% for message in messages %}
+                                   {{ message }}
+                               {% endfor %}
+                           {% endif %}
+                       {% endwith %}
+                       <div class="card-body">
+                           <ul class="list-group list-group-flush">
+                               <li class="list-group-item">
+                                   <strong>Username:</strong> <span id="username">{{ user.username }}</span>
+                               </li>
+                               <li class="list-group-item">
+                                   <strong>Email:</strong> <span id="email">{{ user.email }}</span>
+                               </li>
+                               <li class="list-group-item">
+                                   <button class="btn btn-primary" onclick="editProfile()">Edit Profile</button>
+                               </li>
+                           </ul>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
 
-</body>
-</html>
+       <script>
+           function editProfile() {
+               // Add your logic here to handle profile editing
+               // For example, redirect to a separate edit profile page
+               alert("Edit Profile feature is not yet implemented.");
+           }
+       </script>
+
+       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   </body>
+   </html>

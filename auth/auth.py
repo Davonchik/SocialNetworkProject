@@ -36,7 +36,8 @@ def signup():
             flash('Passwords do not match')
             return redirect(url_for('auth.signup'))
         else:
-            user = User(username=username, email=email, password=password)
+            user = User(username=username, email=email)
+            # user.password_setter(password)
             db.session.add(user)
             db.session.commit()
             return redirect(url_for('auth.login'))
