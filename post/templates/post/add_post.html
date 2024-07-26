@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пост</title>
+</head>
+<body>
+    <h2>Пост</h2>
+    <form action="/post" method="post">
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="content">Content:</label><br>
+        <input type="content" id="content" name="content"><br><br>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <input type="submit" value="Publish">
+    </form>
+</body>
+</html>

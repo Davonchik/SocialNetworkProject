@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Пост</title>
+</head>
+<body>
+    <h2>Пост</h2>
+    {{ post.title }}
+    {{ post.content }}
+    <form action="/post/{{ post.id }}" method="post">
+        <label for="comment">Comment:</label><br>
+        <input type="comment" id="comment" name="comment"><br><br>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <input type="submit" value="Publish">
+    </form>
+    {% if comment %}
+    {% for comm in comment %}
+        {{ comm.user.username }}
+        {{ comm.text }}
+    {% endfor %}
+    {% endif %}
+</body>
+</html>
