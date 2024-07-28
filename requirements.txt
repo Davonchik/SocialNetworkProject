@@ -1,0 +1,6 @@
+Flask~=3.0.3
+Werkzeug~=3.0.3
+alembic~=1.13.2
+SQLAlchemy~=2.0.31
+Flask-Migrate
+psycopg2-binary
