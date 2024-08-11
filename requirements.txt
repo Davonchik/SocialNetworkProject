@@ -4,3 +4,16 @@ alembic~=1.13.2
 SQLAlchemy~=2.0.31
 Flask-Migrate
 psycopg2-binary
+grpcio-tools
+sqlalchemy
+fastapi
+uvicorn
+pydantic
+alembic
+psycopg2-binary
+passlib
+PyJWT
+python-multipart
+cryptography==3.4.8
+bcrypt==3.2.2
+pyyaml
