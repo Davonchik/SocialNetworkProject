@@ -4,7 +4,8 @@ from post_pb2 import (Post,
                       CreatePostRequest,
                       CreatePostResponse,
                       ReadPostRequest,
-                      ReadPostResponse)
+                      ReadPostResponse,
+                      GetPostsResponse)
 import post_pb2_grpc
 
 
@@ -15,6 +16,18 @@ class PostService(post_pb2_grpc.PostServiceServicer):
                     content=request.content, timestamp=request.timestamp,
                     user_id=request.user_id)
         return CreatePostResponse(post=post)
+
+    def GetPosts(self, request, context):
+        print(request.user_id)
+        post1 = Post(id=request.user_id, title="bla",
+                    content="bla bla", timestamp="23456",
+                    user_id=21)
+        post2 = Post(id=request.user_id, title="lala",
+                     content="lalala", timestamp="11111",
+                     user_id=23)
+        posts = GetPostsResponse()
+        posts.posts.extend([post1, post2])
+        return posts
 
 
 def serve():

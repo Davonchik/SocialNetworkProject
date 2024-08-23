@@ -28,7 +28,35 @@ message ReadPostResponse {
     Post post = 1;
 }
 
+message GetPostsRequest {
+    int32 user_id = 1;
+}
+
+message GetPostsResponse {
+    repeated Post posts = 1;
+}
+
+message UserInfo {
+    string username = 1;
+    string description = 2;
+    int32 age = 3;
+    repeated Post posts = 4;
+}
+
+message GetProfileRequest {
+    int32 user_id = 1;
+}
+
+message GetProfileResponse {
+    UserInfo information = 1;
+}
+
 service PostService {
     rpc CreatePost(CreatePostRequest) returns (CreatePostResponse);
     rpc ReadPost(ReadPostRequest) returns (ReadPostResponse);
+    rpc GetPosts(GetPostsRequest) returns (GetPostsResponse);
+}
+
+service ProfileService {
+    rpc GetProfile(GetProfileRequest) returns (GetProfileResponse);
 }
